@@ -664,9 +664,11 @@ _buildInfoBar(
             child: SliderTheme(
               data: SliderThemeData(
                 trackHeight: 2,
+                valueIndicatorColor: Colors.white,
                 thumbShape: SliderComponentShape.noThumb,
                 overlayShape: SliderComponentShape.noOverlay,
                 activeTrackColor: Colors.white,
+                secondaryActiveTrackColor: Colors.white,
                 inactiveTrackColor: Colors.white38,
               ),
               child: Slider(
