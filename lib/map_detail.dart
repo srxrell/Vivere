@@ -546,20 +546,32 @@ class _MapDetailScreenState extends State<MapDetailScreen> {
                   fontWeight: FontWeight.bold)),
           const Divider(color: Colors.white12, height: 20),
 
-          _buildInfoBar("Temperature", "${data['temperature']}°C",
-              (data['temperature'] as num).toDouble().clamp(0, 60) / 60),
-          _buildInfoBar("Air purity", "${data['air_purity']}%",
-              (data['air_purity'] as num).toDouble() / 100),
-          _buildInfoBar("Road traffic", "${data['road_traffic']}%",
-              (data['road_traffic'] as num).toDouble() / 100),
           _buildInfoBar(
-              "Life comfort index",
-              "${(data['life_comfort_index'] as num).toDouble().round()}%",
-              (data['life_comfort_index'] as num).toDouble() / 100),
-          _buildInfoBar(
-              "Population",
-              "${(data['city_population'] as num).toDouble().round()}%",
-              (data['city_population'] as num).toDouble() / 100),
+  "Temperature",
+  "${(data['temperature'] ?? 0)}°C",
+  ((data['temperature'] ?? 0) as num).toDouble().clamp(0, 60) / 60,
+),
+_buildInfoBar(
+  "Air purity",
+  "${(data['air_purity'] ?? 0)}%",
+  ((data['air_purity'] ?? 0) as num).toDouble() / 100,
+),
+_buildInfoBar(
+  "Road traffic",
+  "${(data['road_traffic'] ?? 0)}%",
+  ((data['road_traffic'] ?? 0) as num).toDouble() / 100,
+),
+_buildInfoBar(
+  "Life comfort index",
+  "${((data['life_comfort_index'] ?? 0) as num).toDouble().round()}%",
+  ((data['life_comfort_index'] ?? 0) as num).toDouble() / 100,
+),
+_buildInfoBar(
+  "Population",
+  "${((data['city_population'] ?? 0) as num).toDouble().round()}%",
+  ((data['city_population'] ?? 0) as num).toDouble() / 100,
+),
+
               const SizedBox(height: 20),
 
           // --- Earthquake Metrics ---
@@ -572,7 +584,7 @@ class _MapDetailScreenState extends State<MapDetailScreen> {
 
           _buildInfoBar(
               "Earthquake Risk",
-              "${(data['earthquake_risk'] * 100).toStringAsFixed(2)}%",
+              "${(data['earthquake_risk'])}%",
               (data['earthquake_risk'] as num).toDouble().clamp(0.0, 1.0)),
 
           _buildInfoBar("Earthquake Count", "${data['earthquake_count']}",
